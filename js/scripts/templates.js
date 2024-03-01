@@ -60,30 +60,3 @@ function createHtmlForInfo(id) {
         </div>
     `;
 }
-
-
-// function createHtmlForLicense(id) {
-//     return /*html*/ `
-//         <div class="link-window" onclick="doNotClose(event)">
-//             <button onclick="toggleInfo('${id}')" class="closebtn-style"></button>
-//             <ul>
-//                 <li>
-//                     <a class="attribute-link-style" href="https://www.flaticon.com/free-icons/next"
-//                         title="next icons">Next icons created by Smashicons - Flaticon</a>
-//                 </li>
-//                 <li>
-//                     <a class="attribute-link-style" href="https://www.flaticon.com/free-icons/telephone"
-//                         title="telephone icons">Telephone icons created by Pixel perfect - Flaticon</a>
-//                 </li>
-//                 <li>
-//                     <a class="attribute-link-style" href="https://www.flaticon.com/free-icons/fullscreen"
-//                         title="fullscreen icons">Fullscreen icons created by Those Icons - Flaticon</a>
-//                 </li>
-//                 <li>
-//                     <a class="attribute-link-style" href="https://www.flaticon.com/free-icons/keypad" 
-//                         title="keypad icons">Keypad icons created by Freepik - Flaticon</a>
-//                 </li>
-//             </ul>
-//         </div>
-//     `;
-// }

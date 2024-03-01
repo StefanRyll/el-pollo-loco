@@ -78,8 +78,7 @@ class Character extends MovableObject {
     coin_sound = new Audio('audio/coin.mp3');
     gameOver_sound = new Audio('audio/gameOver.mp3');
     win_sound = new Audio('audio/win.mp3');
-    test = 0;
-    test2 = 0; // ÜBERPRÜFEN //
+
 
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
@@ -142,7 +141,6 @@ class Character extends MovableObject {
 
 
     moveRight() {
-        this.test = 60;
         super.moveRight();
         this.otherDirection = false;
         this.walking_sound.play();
@@ -155,7 +153,6 @@ class Character extends MovableObject {
 
 
     moveLeft() {
-        this.test2 = 560;
         super.moveLeft();
         this.otherDirection = true;
         this.walking_sound.play();
