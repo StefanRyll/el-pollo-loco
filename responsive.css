@@ -1,0 +1,40 @@
+@media (max-width: 900px) {
+    #mobileControler {
+        display: flex;
+    }
+}
+
+@media (max-width: 738px) {
+    body {
+        justify-content: space-evenly;
+    }
+    #gameScreen {
+        display: none;
+    }
+    .rotate-img-style {
+        display: block;
+    }
+}
+
+@media (max-height: 500px) {
+    #gameScreen {
+        width: 100vw;
+        height: 100vh;
+    }
+    .headline {
+        display: none;
+    }
+    canvas {
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+@media (max-height: 321px) {
+    #gameScreen {
+        display: block;
+    }
+    .rotate-img-style {
+        display: none;
+    }
+}

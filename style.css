@@ -1,0 +1,380 @@
+/* === GENERAL === */
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./img/5_background/body-bg.jpg);
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+
+/* === GLOBAL === */
+
+.d-none {
+    display: none !important;
+}
+
+.btn-style {
+    padding: 5px 10px;
+    width: 110px;
+    height: 40px;
+    background-color: #FF9601;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-style:hover {
+    background-color: #e88904;
+    transform: scale(1.1);
+}
+
+.closebtn-style {
+    background-image: url(./img/control/close.png);
+    border: none;
+    background-color: #FF9601;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.closebtn-style:hover {
+    transform: scale(1.1);
+}
+
+#gameScreen {
+    position: relative;
+    height: 480px;
+    width: 720px;
+    box-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77, 0, 38, 0.5), 3px 0 3px #FF002B, 5px 0 3px #800015, 6px 2px 3px rgba(77, 0, 13, 0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77, 25, 0, 0.5), 11px 0 18px #806A00, 12px 2px 18px rgba(77, 66, 0, 0.5), 14px 0 30px #6A8000, 15px 2px 30px rgba(64, 77, 0, 0.5), 17px 0 45px #8c9980, 17px 2px 45px rgba(38, 77, 0, 0.5);
+}
+
+.info-window-style {
+    width: 100%;
+    height: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rotate-img-style {
+    animation: rotate 3s infinite;
+    display: none;
+    width: 128px;
+    height: 128px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-47deg);
+    }
+    50% {
+        transform: rotate(47deg);
+    }
+    100% {
+        transform: rotate(-47deg);
+    }
+}
+
+.headline {
+    font-size: 4rem;
+    letter-spacing: .3rem;
+    margin: 1.5rem;
+    color: #A7DD3C;
+    text-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77, 0, 38, 0.5), 3px 0 3px #FF002B, 5px 0 3px #800015, 6px 2px 3px rgba(77, 0, 13, 0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77, 25, 0, 0.5), 11px 0 18px #806A00, 12px 2px 18px rgba(77, 66, 0, 0.5), 14px 0 30px #6A8000, 15px 2px 30px rgba(64, 77, 0, 0.5), 17px 0 45px #8c9980, 17px 2px 45px rgba(38, 77, 0, 0.5);
+}
+
+
+/* === LOADING-SCREEN === */
+
+#loadingScreen {
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/5_background/second_half_background.png);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    right: 0;
+    animation: fadeIn 100ms ease-out;
+}
+
+.loading-img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    animation: spin 3s linear infinite;
+}
+
+.loading-status {
+    font-size: 1.5rem;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* === START-SCREEN === */
+
+#startScreen {
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/9_intro_outro_screens/start/startscreen_1.png);
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    animation: fadeIn 500ms ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.btn-container {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#gameInfo {
+    width: 450px;
+    height: 100px;
+    padding: 10px;
+    background-color: #FF9601;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    animation: fadeIn 225ms ease;
+}
+
+.control-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+}
+
+.controller-img {
+    width: 50px;
+}
+
+.fullScreenBtn-startscreen {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.5rem;
+}
+
+.snake-startscreen {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+}
+
+
+/* === CANVAS === */
+
+#canvasContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 1500ms ease-out;
+}
+
+canvas {
+    /* background-color: black; */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#ingameControl {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ingame-control-btn {
+    background-size: 25px 25px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.ingame-control-btn:hover {
+    transform: scale(1.1);
+}
+
+#volumeBtn {
+    background-image: url(./img/control/volume.png);
+}
+
+#infoIngameBtn {
+    background-image: url(./img/control/arrows.png);
+}
+
+#pauseBtn {
+    background-image: url(./img/control/pause.png);
+}
+
+#fullScreenBtn {
+    background-image: url(./img/control/fullscreen.png);
+}
+
+#ingameInfoContainer {
+    z-index: 2;
+}
+
+#mobileControler {
+    width: 100%;
+    height: 12%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    display: none;
+}
+
+.mobile-btn {
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-btn:active {
+    transform: scale(1.2);
+}
+
+.left-hand,
+.right-hand {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-hand {
+    width: 100px;
+}
+
+#jumpKey {
+    background-image: url(./img/control/up.png);
+}
+
+#throwKey {
+    background-image: url(./img/control/bottle.png);
+}
+
+#leftKey {
+    background-image: url(./img/control/left.png);
+}
+
+#rightKey {
+    background-image: url(./img/control/right.png);
+}
+
+#throwKey,
+#leftKey,
+#rightKey,
+#jumpKey {
+    filter: opacity(0.7);
+}
+
+
+/* === END-SCREEN === */
+
+#endScreen {
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    animation: fadeIn 500ms ease-out;
+}
+
+.restart-btn {
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    padding: 5px 10px;
+    width: fit-content;
+    height: 40px;
+    background-color: #FF9601;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.restart-btn:hover {
+    background-color: #e88904;
+}
+
+.game-over-img {
+    width: 100%;
+    height: 100%;
+}
