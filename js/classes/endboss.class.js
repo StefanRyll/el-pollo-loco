@@ -70,22 +70,30 @@ class Endboss extends MovableObject {
         }, 200);
     }
 
-
+    /**
+     * Starts the Endboss fight.
+     */
     startEndBoss() {
         if (this.canEndbossStart()) {
+            setMusicPause();
             setMusic('endBossFight_sound');
             world.endbossFight = true;
             setTimeout(() => this.positionEnd = true, 2500);
         }
     }
 
-
+    /**
+     * Ends the Endboss fight.
+     * @param {number} mI - The ID of the interval.
+     */
     endBossDead(mI) {
         clearInterval(mI);
         this.playAnimation(this.IMAGES_DEAD);
     }
 
-
+    /**
+     * Moves the Endboss.
+     */
     movingEndboss() {
         if (this.isCharacterAtTheEnd())
             this.moveLeft();
@@ -93,7 +101,10 @@ class Endboss extends MovableObject {
             this.moveRight();
     }
 
-
+    /**
+     * Animates the Endboss.
+     * @param {number} mI - The ID of the interval.
+     */
     animateEndboss(mI) {
         if (this.isHurt()) {
             this.playAnimation(this.IMAGES_HURT);
@@ -109,29 +120,42 @@ class Endboss extends MovableObject {
         this.startEndBoss();
     }
 
-
+    /**
+     * Checks if the character is at the end.
+     * @returns {boolean} - Returns true if the character is at the end, otherwise false.
+     */
     isCharacterAtTheEnd() {
         return (2500 - world.character.x) < 800 && this.x > world.character.x && this.positionEnd && gameStarted;
     }
 
-
+    /**
+     * Moves the Endboss to the left.
+     */
     moveLeft() {
         super.moveLeft();
         this.otherDirection = false;
     }
 
-
+    /**
+     * Checks if the character is nearby.
+     * @returns {boolean} - Returns true if the character is nearby, otherwise false.
+     */
     isCharacterNear() {
         return (2500 - world.character.x) > 800 && this.x < 2500 && this.positionEnd && gameStarted;
     }
 
-
+    /**
+     * Moves the Endboss to the right.
+     */
     moveRight() {
         super.moveRight();
         this.otherDirection = true;
     }
 
-
+    /**
+     * Checks if the Endboss can start.
+     * @returns {boolean} - Returns true if the Endboss can start, otherwise false.
+     */
     canEndbossStart() {
         return (2500 - world.character.x) < 700;
     }

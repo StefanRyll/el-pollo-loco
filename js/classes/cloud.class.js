@@ -5,11 +5,11 @@ class Cloud extends MovableObject {
 
     constructor(x) {
         super().loadImage('img/5_background/layers/4_clouds/1.png');
-        this.anitmate();
+        this.animate();
         this.x = x;
     }
 
-    anitmate() {
+    animate() {
         setStoppableInterval(() => {
             if (!world.gamePaused) this.moveLeft()
         }, 1000 / 60);

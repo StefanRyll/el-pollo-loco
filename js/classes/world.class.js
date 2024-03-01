@@ -28,6 +28,9 @@ class World {
         this.run();
     }
 
+    /**
+     * Runs the game loop, checking collisions, updating game elements, and handling game logic.
+     */
     run() {
         setStoppableInterval(() => {
             this.checkCollisionsWithEnemy();
@@ -41,6 +44,9 @@ class World {
         }, 100);
     }
 
+    /**
+     * Throws a bottle if the conditions are met.
+     */
     throwBottle() {
         if (this.checkForThrowingBottle('W', !this.character.otherDirection)) this.throwObj(20);
         if (this.checkForThrowingBottle('W', this.character.otherDirection)) this.throwObj(20);
@@ -133,7 +139,10 @@ class World {
         return this.character.isCollidingOld(enemy) && !this.character.isAboveGround() && this.character.energy > 0 && enemy.energy > 0 && !this.characterImmortal;
     }
 
-
+    /**
+     * Handles the event when an enemy hits the character.
+     * Updates character's energy, plays hurt sound, updates status bar, and sets immortal timer.
+     */
     enemyHitsCharacter() {
         this.character.hit(true);
         this.character.hurt_sound.play();
@@ -164,20 +173,37 @@ class World {
         this.endbossStatusBar.decreaseEnergyOfEndbossStatusBar(enemy);
     }
 
-
+    /**
+     * Checks if the enemy is dead.
+     * @param {object} enemy - The enemy to check.
+     * @returns {boolean} - Returns true if the enemy's energy is less than or equal to 0, otherwise false.
+     */
     isEnemyDead(enemy) {
         return enemy.energy <= 0;
     }
 
+    /**
+     * Handles the event when an enemy dies.
+     * Deletes the enemy from the level and plays the chicken sound.
+     * @param {object} enemy - The enemy that died.
+     */
     enemyDies(enemy) {
         this.deleteEnemy(enemy);
         this.chickenSound(enemy);
     }
 
+    /**
+     * Deletes an enemy from the level after a delay.
+     * @param {object} enemy - The enemy to delete.
+     */
     deleteEnemy(enemy) {
         setTimeout(() => this.level.enemies.splice(this.level.enemies.indexOf(enemy), 1), 2000);
     }
 
+    /**
+     * Plays the chicken sound.
+     * @param {object} enemy - The enemy for which to play the sound.
+     */
     chickenSound(enemy) {
         enemy.chicken_sound.play();
     }
@@ -192,16 +218,30 @@ class World {
         return !bottle.isCollidingOld(enemy) && !bottle.isAboveGround();
     }
 
+    /**
+     * Handles the event when a bottle breaks.
+     * Plays the breaking glass sound and deletes the bottle.
+     * @param {object} bottle - The bottle that broke.
+     */
     bottleBreaking(bottle) {
         this.breakingGlassSound();
         this.deleteBottle(bottle);
     }
 
+    /**
+     * Checks for the end of the game.
+     * If the end boss is defeated or the character's energy reaches 0, triggers the game over sequence.
+     */
     checkForEndOfGame() {
         if (!this.checkIfEndboss()) this.gameOver('win_sound');
         if (this.character.energy == 0) this.gameOver('gameOver_sound');
     }
 
+    /**
+     * Triggers the game over sequence.
+     * Stops the game, plays the specified sound, and sets the game over flag.
+     * @param {string} sound - The sound to play when the game is over.
+     */
     gameOver(sound) {
         setTimeout(() => {
             stopGame();
@@ -210,19 +250,34 @@ class World {
         }, 1000);
     }
 
+    /**
+     * Sets a timer to make the character immortal for a short duration.
+     * Immortal character cannot be hurt by enemies.
+     */
     setImmortalTimer() {
         this.characterImmortal = true;
         setTimeout(() => this.characterImmortal = false, 150);
     }
 
+    /**
+     * Checks if an end boss exists in the level.
+     * @returns {boolean} - Returns true if an end boss exists, otherwise false.
+     */
     checkIfEndboss() {
         return this.level.enemies.some(enemy => enemy instanceof Endboss);
     }
 
+    /**
+     * Plays the breaking glass sound.
+     */
     breakingGlassSound() {
         this.character.breaking_glass_sound.play();
     }
 
+    /**
+     * Deletes a bottle after a short delay.
+     * @param {object} bottle - The bottle object to delete.
+     */
     deleteBottle(bottle) {
         setTimeout(() => this.throwableObject.splice(this.throwableObject.indexOf(bottle)), 200);
     }
@@ -243,6 +298,11 @@ class World {
         });
     }
 
+    /**
+     * Checks if the character is colliding with a collectible object.
+     * @param {object} collectible - The collectible object to check collision with.
+     * @returns {boolean} - Returns true if the character is colliding with the collectible, otherwise false.
+     */
     isCharacterCollidingWithCollectable(collectible) {
         return this.character.isCollidingOld(collectible);
     }
@@ -265,6 +325,9 @@ class World {
         }
     }
 
+    /**
+     * Draws all objects on the canvas.
+     */
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); // clears the canvas before draw new objects.
         this.ctx.translate(this.camera_x, 0);
@@ -291,18 +354,30 @@ class World {
         });
     }
 
+    /**
+     * Adds multiple objects to the canvas map.
+     * @param {Array} object - The array of objects to add to the map.
+     */
     addObjectsToMap(object) {
         object.forEach(o => {
             this.addToMap(o);
         });
     }
 
+    /**
+     * Adds a single object to the canvas map.
+     * @param {object} mo - The object to add to the map.
+     */
     addToMap(mo) {
         if (mo.otherDirection) this.mirrowImage(mo);
         mo.draw(this.ctx);
         if (mo.otherDirection) this.mirrowImageReset(mo);
     }
 
+    /**
+     * Mirrors the image horizontally.
+     * @param {object} mo - The object whose image is to be mirrored.
+     */
     mirrowImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -310,6 +385,10 @@ class World {
         mo.x = mo.x * -1;
     }
 
+    /**
+     * Resets the mirrored image to its original state.
+     * @param {object} mo - The object whose image is to be reset.
+     */
     mirrowImageReset(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();

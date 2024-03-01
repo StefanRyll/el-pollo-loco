@@ -11,7 +11,7 @@ function createHtmlForGame() {
             </div>
             <div id="gameInfoContainer" class="d-none info-window-style" onclick="toggleInfo('gameInfoContainer')"></div>
             <img id="snake" class="snake-startscreen" src="./img/11_enemies_snake/Walk1.png">
-            <div class="ingame-control-btn fullScreenBtn-startscreen" id="fullScreenBtn" onclick="toggleFullscreen()"></div>
+            <div class="ingame-control-btn fullScreenBtn-startscreen fullscreen-respon" id="fullScreenBtn" onclick="toggleFullscreen()"></div>
         </div>
         <div id="endScreen" class="d-none">
             <img class="game-over-img" src="./img/9_intro_outro_screens/game_over/game over.png">
@@ -22,7 +22,7 @@ function createHtmlForGame() {
                 <div class="ingame-control-btn" id="pauseBtn" onclick="pauseGame()"></div>
                 <div class="ingame-control-btn" id="infoIngameBtn"onclick="toggleInfo('ingameInfoContainer')"></div>
                 <div class="ingame-control-btn" id="volumeBtn" onclick="muteSound()"></div>
-                <div class="ingame-control-btn" id="fullScreenBtn" onclick="toggleFullscreen()"></div>
+                <div class="ingame-control-btn fullscreen-respon" id="fullScreenBtn" onclick="toggleFullscreen()"></div>
             </div>
             <div id="ingameInfoContainer" class="d-none info-window-style" onclick="toggleInfo('ingameInfoContainer')"></div>
             <div id="mobileControler">

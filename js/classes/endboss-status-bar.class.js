@@ -20,6 +20,11 @@ class EndbossStatusBar extends DrawableObject {
         this.setPercentage(100);
     }
 
+    /**
+     * Decreases the energy of the end boss status bar.
+     * If the enemy is an instance of Endboss, sets the percentage of the status bar based on the enemy's energy.
+     * @param {Enemy} enemy The enemy whose energy is to be used for updating the status bar.
+     */
     decreaseEnergyOfEndbossStatusBar(enemy) {
         if (enemy instanceof Endboss) {
             this.setPercentage(enemy.energy);

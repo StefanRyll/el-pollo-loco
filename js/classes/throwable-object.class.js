@@ -57,12 +57,17 @@ class ThrowableObject extends MovableObject {
         }, 100);
     }
 
-
+    /**
+     * Rotates the bottle.
+     */
     rotateBottle() {
         this.playAnimation(this.IMAGES_ROTATION);
     }
 
-
+    /**
+     * Splashes the bottle.
+     * @returns {void}
+     */
     splashBottle() {
         if (this.y > 320) {
             clearInterval(this.throw_animation);

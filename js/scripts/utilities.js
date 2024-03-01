@@ -110,16 +110,16 @@ function doNotClose(event) {
  * Toggles fullscreen mode for the game screen.
  */
 function toggleFullscreen() {
-    fullScreenEnabled = !fullScreenEnabled;
     let element = document.getElementById('gameScreen');
     let button = document.getElementById('fullScreenBtn');
-    let snake = document.getElementById('snake')
-    if (!fullScreenEnabled) {
-        enterFullscreen(element)
+    let snake = document.getElementById('snake');
+
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        enterFullscreen(element);
         button.style.backgroundImage = `url('img/control/windowed.png')`;
         snake.style.display = `none`;
     } else {
-        exitFullscreen()
+        exitFullscreen();
         button.style.backgroundImage = `url('img/control/fullscreen.png')`;
         snake.style.display = `block`;
     }

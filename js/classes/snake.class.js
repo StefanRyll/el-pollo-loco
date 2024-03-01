@@ -4,8 +4,8 @@ class Snake extends MovableObject {
     y = 320;
     energy = 1;
     offset = {
-        left: 30,
-        right: 0,
+        left: 60,
+        right: -30,
         top: 50,
         bottom: 10
     }

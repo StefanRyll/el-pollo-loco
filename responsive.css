@@ -4,7 +4,7 @@
     }
 }
 
-@media (max-width: 738px) {
+@media (max-width: 638px) {
     body {
         justify-content: space-evenly;
     }
@@ -21,7 +21,8 @@
         width: 100vw;
         height: 100vh;
     }
-    .headline {
+    .headline,
+    .fullscreen-respon {
         display: none;
     }
     canvas {

@@ -108,6 +108,19 @@ function setMusic(music) {
 }
 
 /**
+ * Pauses all currently playing background music in the game.
+ */
+function setMusicPause() {
+    let sounds = [world.gameMusic_sound, world.endBossFight_sound];
+    sounds.forEach(sound => {
+        if (!sound.paused) {
+            sound.pause();
+        }
+    });
+}
+
+
+/**
  * Checks for the appropriate music sound based on the game state.
  * @returns {string} - The name of the music sound to play.
  */

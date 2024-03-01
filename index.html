@@ -33,6 +33,24 @@
     <script src="js/classes/level.class.js"></script>
     <script src="js/levels/level1.js"></script>
 
+    <video class="d-none" id="video" preload="none" src="https://example.com/file.mp4"></video>
+
+    <script>
+        // Show loading animation.
+        var playPromise = video.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                    // Automatic playback started!
+                    // Show playing UI.
+                })
+                .catch(error => {
+                    // Auto-play was prevented
+                    // Show paused UI.
+                });
+        }
+    </script>
+
 </head>
 
 <body onload="loadGame()">
