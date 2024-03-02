@@ -9,6 +9,9 @@ class Cloud extends MovableObject {
         this.x = x;
     }
 
+    /**
+     * Executes the animation of the object at intervals.
+     */
     animate() {
         setStoppableInterval(() => {
             if (!world.gamePaused) this.moveLeft()

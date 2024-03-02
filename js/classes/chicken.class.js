@@ -25,7 +25,9 @@ class Chicken extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * Executes the animation of the object at intervals.
+     */
     animate() {
         const moveInterval = setInterval(() => {
             if (!world.gamePaused && gameStarted && !world.isGameOver) this.moveLeft();

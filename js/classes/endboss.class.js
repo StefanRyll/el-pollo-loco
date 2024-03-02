@@ -3,7 +3,7 @@ class Endboss extends MovableObject {
     width = 250;
     y = 50;
     energy = 100;
-    speed = 6;
+    speed = 4;
     offset = {
         left: 15,
         right: 20,
@@ -60,7 +60,16 @@ class Endboss extends MovableObject {
         setTimeout(() => this.animate(), 5000);
     }
 
-
+    /**
+     * Initiates the animation loops for moving and animating the end boss.
+     * Uses two intervals: one for continuous movement and one for animation frames.
+     * Movement is executed at a higher frequency (60 times per second) to ensure smooth motion.
+     * Animation frames are updated at a lower frequency (5 times per second) for rendering.
+     * @memberof Object
+     * @function animate
+     * @instance
+     * @returns {void}
+     */
     animate() {
         const moveInterval = setInterval(() => {
             if (!world.gamePaused) this.movingEndboss()

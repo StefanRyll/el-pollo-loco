@@ -28,7 +28,15 @@ class Snake extends MovableObject {
         this.isDead();
     }
 
-
+    /**
+     * Initiates the animation loops for moving, animating, and handling enemy killing.
+     * Uses intervals for continuous movement, animation frames, and enemy kill checks.
+     * Movement and animation occur when the game is not paused, started, and not over.
+     * @memberof Object
+     * @function animate
+     * @instance
+     * @returns {void}
+     */
     animate() {
         const moveInterval = setInterval(() => {
             if (!world.gamePaused && gameStarted && !world.isGameOver) this.moveLeft();

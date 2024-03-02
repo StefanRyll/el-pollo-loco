@@ -49,7 +49,15 @@ class ThrowableObject extends MovableObject {
         }, 50);
     }
 
-
+    /**
+     * Initiates the animation loop for rotating and splashing the bottle.
+     * Uses a stoppable interval for continuous rotation and splashing.
+     * Rotation and splashing occur at a frequency of 10 times per second (100 milliseconds).
+     * @memberof Object
+     * @function animate
+     * @instance
+     * @returns {void}
+     */
     animate() {
         setStoppableInterval(() => {
             this.rotateBottle();

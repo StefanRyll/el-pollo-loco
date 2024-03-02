@@ -21,6 +21,9 @@ class Bottle extends MovableObject {
         this.animate();
     }
 
+    /**
+     * Executes the animation of the object at intervals.
+     */
     animate() {
         setInterval(() => {
             if (!world.gamePaused && !world.isGameOver) this.playAnimation(this.IMAGES_CHANGES);

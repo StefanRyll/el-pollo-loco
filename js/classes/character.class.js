@@ -94,7 +94,9 @@ class Character extends MovableObject {
         this.resetTimer();
     }
 
-
+    /**
+     * Executes the animation of the object at intervals.
+     */
     animate() {
         setStoppableInterval(() => this.movingCharacter(), 1000 / 60);
         setStoppableInterval(() => this.animateCharacter(), 100);
