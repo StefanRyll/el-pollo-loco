@@ -46,15 +46,15 @@ function createHtmlForInfo(id) {
         <div id="gameInfo" onclick="doNotClose(event)">
             <button onclick="toggleInfo('${id}')" class="closebtn-style"></button>
             <div class="control-container">
-                <img class="controller-img" src="./img/control/arrows.png" alt="">
+                <img class="controller-img" src="./img/control/arrows.png">
                 <span>walk</span>
             </div>
             <div class="control-container">
-                <img class="controller-img" src="./img/control/letter-w.png" alt="">
+                <img class="controller-img" src="./img/control/letter-w.png">
                 <span>throw a bottle</span>
             </div>
             <div class="control-container">
-                <img class="controller-img" src="./img/control/space.png" alt="">
+                <img class="controller-img" src="./img/control/space.png">
                 <span>jump</span>
             </div>
         </div>

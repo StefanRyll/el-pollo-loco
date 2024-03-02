@@ -78,7 +78,6 @@ class Character extends MovableObject {
     coin_sound = new Audio('audio/coin.mp3');
     gameOver_sound = new Audio('audio/gameOver.mp3');
     win_sound = new Audio('audio/win.mp3');
-    snore_sound = new Audio('audio/snore.mp3');
 
 
     constructor() {
@@ -123,7 +122,6 @@ class Character extends MovableObject {
      * Animates the character based on its current state.
      * Decreases the startTime if it's greater than 0.
      * Plays animations for different character states such as dead, hurt, jumping, walking, long idle, and idle.
-     * Plays a snore sound if the character is in a long idle state.
      */
     animateCharacter() {
         if (this.startTime > 0)
@@ -139,7 +137,6 @@ class Character extends MovableObject {
             this.playAnimation(this.IMAGES_WALKING);
         } else if (this.checkIfCharIsLongIdle()) {
             this.playAnimation(this.IMAGES_IDLE_LONG);
-            this.snore_sound.play();
         } else if (this.checkIfCharIsIdle()) {
             this.playAnimation(this.IMAGES_IDLE);
         }

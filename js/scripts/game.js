@@ -22,6 +22,7 @@ async function loadGame(newStart) {
     initLevel();
     init();
     preSoundSetting();
+    setMusicPause();
 }
 
 /**
@@ -67,7 +68,7 @@ function pauseGame() {
     if (!world.gamePaused) {
         togglePause(true, '', 'img/control/play.png');
     } else {
-        togglePause(false, this.CheckForMusic(), 'img/control/pause.png')
+        togglePause(false, this.checkForEndbossMusic(), 'img/control/pause.png')
     }
 }
 
@@ -124,7 +125,7 @@ function setMusicPause() {
  * Checks for the appropriate music sound based on the game state.
  * @returns {string} - The name of the music sound to play.
  */
-function CheckForMusic() {
+function checkForEndbossMusic() {
     if (world.endbossFight) {
         return 'endBossFight_sound';
     } else {
